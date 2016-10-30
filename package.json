@@ -6,9 +6,11 @@
   "license": "Apache-2.0",
   "scripts": {
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "lite": "lite-server"
   },
   "devDependencies": {
+    "lite-server": "^2.2.2",
     "typescript": "^2.0.6"
   }
 }
