@@ -1,0 +1,7 @@
+{
+  "name": "angular2-app",
+  "version": "0.0.1",
+  "description": "An Angular 2 on TypeScript demo app",
+  "author": "Tomasz Guzialek",
+  "license": "Apache-2.0"
+}
