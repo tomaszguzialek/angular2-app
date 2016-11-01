@@ -3,5 +3,10 @@ import 'core-js/es7/reflect';
 
 require('zone.js/dist/zone');
 
-Error['stackTraceLimit'] = Infinity;
-require('zone.js/dist/long-stack-trace-zone');
+if (process.env.ENV === 'production') {
+  // Production
+} else {
+  // Development
+  Error['stackTraceLimit'] = Infinity;
+  require('zone.js/dist/long-stack-trace-zone');
+}

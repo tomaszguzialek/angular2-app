@@ -5,7 +5,8 @@
   "author": "Tomasz Guzialek",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 8080"
+    "start": "webpack-dev-server --inline --progress --port 8080",
+    "build": "rimraf dist && webpack --config webpack-config/webpack.prod.js --progress --profile --bail"
   },
   "dependencies": {
     "@angular/common": "^2.1.2",
@@ -27,6 +28,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.24.1",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "typescript": "^2.0.6",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
