@@ -4,7 +4,7 @@ var commonConfig = require('./webpack.common.js');
 var path = require('path');
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   output: {
     path: path.resolve(__dirname, "../dist-dev"),
