@@ -1,0 +1,5 @@
+<div id="sign-in-with-google-btn"></div>
+
+<div *ngIf="email">Signed in as: {{email}}</div>
+
+<a (click)="signOut()" *ngIf="email">Sign out!</a>
