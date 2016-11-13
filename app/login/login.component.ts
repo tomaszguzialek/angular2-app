@@ -1,5 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 
+declare var gapi: any;
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html'
