@@ -38,6 +38,7 @@
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "typescript": "^2.0.6",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.15.0"
