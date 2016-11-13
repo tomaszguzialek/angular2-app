@@ -1,0 +1,4 @@
+<button (click)="signIn()" *ngIf="!email">Sign in with Google</button>
+<button (click)="signOut()" *ngIf="email">Sign out</button>
+
+<div *ngIf="email">Signed in as: {{email}}</div>
