@@ -10,29 +10,39 @@ export class LoginComponent {
   constructor(private ngZone: NgZone) {}
 
   ngAfterViewInit() {
-    gapi.signin2.render('sign-in-with-google-btn', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'light',
-        'onsuccess': param => {
-          this.ngZone.run(() => this.onGoogleSignIn(param));
-        }
+    gapi.load('auth2', () => this.onAuthInitialized());
+  }
+
+  public signIn() {
+    gapi.auth2.getAuthInstance().signIn().then(() => {
+      this.updateSigninStatus();
     });
   }
 
-  public onGoogleSignIn(googleUser) {
-    let profile = googleUser.getBasicProfile();
-    this.email = profile.getEmail();
+  public signOut() {
+    gapi.auth2.getAuthInstance().signOut().then(() => {
+      this.updateSigninStatus();
+    });
   }
 
-  public signOut() {
-    let auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(() => {
-      this.ngZone.run(() => {
+  private onAuthInitialized() {
+    gapi.auth2.init({
+      client_id: '440406213380-57tebmtush3io9hnnqmjhm7rpv0mipsc.apps.googleusercontent.com',
+      scope: 'profile'
+    }).then(() => {
+      this.updateSigninStatus();
+    });
+  }
+
+  private updateSigninStatus() {
+    this.ngZone.run(() => {
+      let user = gapi.auth2.getAuthInstance().currentUser.get();
+
+      if (user.isSignedIn()) {
+        this.email = user.getBasicProfile().getEmail();
+      } else {
         this.email = null;
-      });
+      }
     });
   }
 }
